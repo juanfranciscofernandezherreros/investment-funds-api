@@ -21,6 +21,10 @@
         <dependency><groupId>org.openapitools</groupId><artifactId>jackson-databind-nullable</artifactId><version>0.2.8</version></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-webmvc-test</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-java</artifactId><version>7.34.8</version><scope>test</scope></dependency>
+        <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-junit-platform-engine</artifactId><version>7.34.8</version><scope>test</scope></dependency>
+        <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-spring</artifactId><version>7.34.8</version><scope>test</scope></dependency>
+        <dependency><groupId>org.junit.platform</groupId><artifactId>junit-platform-suite</artifactId><scope>test</scope></dependency>
     </dependencies>
     <build><plugins>
         <plugin><groupId>com.diffplug.spotless</groupId><artifactId>spotless-maven-plugin</artifactId><version>2.46.1</version><configuration><java><palantirJavaFormat/></java></configuration></plugin>
