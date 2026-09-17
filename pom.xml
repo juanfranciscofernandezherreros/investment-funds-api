@@ -17,6 +17,8 @@
         <dependency><groupId>org.flywaydb</groupId><artifactId>flyway-sqlserver</artifactId></dependency>
         <dependency><groupId>com.microsoft.sqlserver</groupId><artifactId>mssql-jdbc</artifactId><scope>runtime</scope></dependency>
         <dependency><groupId>org.projectlombok</groupId><artifactId>lombok</artifactId><optional>true</optional></dependency>
+        <dependency><groupId>io.swagger.core.v3</groupId><artifactId>swagger-annotations-jakarta</artifactId><version>2.2.40</version></dependency>
+        <dependency><groupId>org.openapitools</groupId><artifactId>jackson-databind-nullable</artifactId><version>0.2.8</version></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-webmvc-test</artifactId><scope>test</scope></dependency>
     </dependencies>
@@ -33,6 +35,27 @@
                     <phase>validate</phase>
                     <goals><goal>validate</goal></goals>
                     <configuration><inputSpec>${project.basedir}/src/main/resources/static/openapi.yaml</inputSpec></configuration>
+                </execution>
+                <execution>
+                    <id>generate-openapi-server-interface</id>
+                    <phase>generate-sources</phase>
+                    <goals><goal>generate</goal></goals>
+                    <configuration>
+                        <inputSpec>${project.basedir}/src/main/resources/static/openapi.yaml</inputSpec>
+                        <generatorName>spring</generatorName>
+                        <apiPackage>com.example.investmentfunds.generated.api</apiPackage>
+                        <modelPackage>com.example.investmentfunds.generated.model</modelPackage>
+                        <generateApiTests>false</generateApiTests>
+                        <generateModelTests>false</generateModelTests>
+                        <generateSupportingFiles>false</generateSupportingFiles>
+                        <configOptions>
+                            <interfaceOnly>true</interfaceOnly>
+                            <skipDefaultInterface>true</skipDefaultInterface>
+                            <useSpringBoot4>true</useSpringBoot4>
+                            <useTags>true</useTags>
+                            <useResponseEntity>false</useResponseEntity>
+                        </configOptions>
+                    </configuration>
                 </execution>
             </executions>
         </plugin>
