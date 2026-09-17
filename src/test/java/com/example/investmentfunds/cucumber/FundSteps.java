@@ -28,6 +28,16 @@ public class FundSteps {
         when(fundService.create(any())).thenReturn(fund());
     }
 
+    @Given("the fund service rejects a duplicate ISIN")
+    public void duplicateIsin() {
+        when(fundService.create(any())).thenThrow(new AppException(AppError.ISIN_ALREADY_EXISTS));
+    }
+
+    @Given("the fund service finds fund {long}")
+    public void existingFund(Long id) {
+        when(fundService.findById(id)).thenReturn(fund());
+    }
+
     @Given("the fund service cannot find fund {long}")
     public void missingFund(Long id) {
         when(fundService.findById(id)).thenThrow(new AppException(AppError.FUND_NOT_FOUND));
@@ -42,6 +52,11 @@ public class FundSteps {
     @Given("the fund service accepts an updated fund")
     public void updatedFund() {
         when(fundService.patch(eq(1L), any())).thenReturn(fund());
+    }
+
+    @Given("the fund service rejects a duplicate update")
+    public void duplicateUpdate() {
+        when(fundService.patch(eq(1L), any())).thenThrow(new AppException(AppError.ISIN_ALREADY_EXISTS));
     }
 
     @When("I send a POST request to {string} with body {string}")
