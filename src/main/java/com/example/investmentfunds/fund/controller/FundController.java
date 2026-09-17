@@ -21,6 +21,7 @@ public class FundController implements FundsApi {
                 .withManagementCompany(r.getManagementCompany())
                 .withCategory(r.getCategory())
                 .withCurrency(r.getCurrency())
+                .withInceptionDate(r.getInceptionDate()).withNavDate(r.getNavDate()).withNav(r.getNav()).withAssetsUnderManagement(r.getAssetsUnderManagement()).withInvestors(r.getInvestors()).withManagementFee(r.getManagementFee()).withDepositFee(r.getDepositFee()).withTer(r.getTer()).withReturnYtd(r.getReturnYtd()).withReturn1Year(r.getReturn1Year()).withReturn3Years(r.getReturn3Years()).withReturn5Years(r.getReturn5Years())
                 .withRiskLevel(r.getRiskLevel())
                 .withActive(r.getActive())
                 .build();
@@ -40,6 +41,7 @@ public class FundController implements FundsApi {
                 .withManagementCompany(r.getManagementCompany())
                 .withCategory(r.getCategory())
                 .withCurrency(r.getCurrency())
+                .withInceptionDate(r.getInceptionDate()).withNavDate(r.getNavDate()).withNav(r.getNav()).withAssetsUnderManagement(r.getAssetsUnderManagement()).withInvestors(r.getInvestors()).withManagementFee(r.getManagementFee()).withDepositFee(r.getDepositFee()).withTer(r.getTer()).withReturnYtd(r.getReturnYtd()).withReturn1Year(r.getReturn1Year()).withReturn3Years(r.getReturn3Years()).withReturn5Years(r.getReturn5Years())
                 .withRiskLevel(r.getRiskLevel())
                 .withActive(r.getActive())
                 .build();
@@ -84,6 +86,7 @@ public class FundController implements FundsApi {
         target.setCurrency(source.getCurrency());
         target.setRiskLevel(source.getRiskLevel());
         target.setActive(source.getActive());
+        target.setInceptionDate(source.getInceptionDate()); target.setNavDate(source.getNavDate()); target.setNav(source.getNav()); target.setAssetsUnderManagement(source.getAssetsUnderManagement()); target.setInvestors(source.getInvestors()); target.setManagementFee(source.getManagementFee()); target.setDepositFee(source.getDepositFee()); target.setTer(source.getTer()); target.setReturnYtd(source.getReturnYtd()); target.setReturn1Year(source.getReturn1Year()); target.setReturn3Years(source.getReturn3Years()); target.setReturn5Years(source.getReturn5Years());
         target.setCreatedAt(source.getCreatedAt());
         target.setUpdatedAt(source.getUpdatedAt());
         return target;
